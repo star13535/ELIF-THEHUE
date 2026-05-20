@@ -17,148 +17,372 @@
     
     <title>엘리프 한신더휴 수원 - 양나경 팀장</title>
     
-    <link rel="icon" href="img/logo.jpg" type="image/jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/logo.png" type="image/jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
-        /* [공통 설정] */
+        /* [공통 설정 - 엘리프 공식 홈 테마 반영: 프리미엄 딥 그린 & 베이지 톤] */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8f9fa; color: #333; text-align: center; }
+        body { 
+            font-family: 'Noto Sans KR', sans-serif; 
+            background-color: #faf9f5; /* 엘리프 특유의 따뜻하고 고급스러운 베이지 스톤 톤 */
+            color: #1e2d29; /* 가독성을 높인 딥 에버그린 차콜 */
+            text-align: center; 
+            -webkit-font-smoothing: antialiased;
+        }
         img { width: 100%; height: auto; display: block; vertical-align: middle; }
 
-        /* [1. 인트로 팝업] */
+        /* [1. 인트로 팝업 - 모던 디자인 및 블러 처리 적용] */
         .intro-popup-container { 
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; 
-            background: rgba(0, 0, 0, 0.75); z-index: 10000; align-items: center; justify-content: center; padding: 15px;
+            background: rgba(0, 48, 40, 0.65); /* 브랜드 에버그린 반투명 */
+            backdrop-filter: blur(8px); /* 트렌디한 뒷배경 흐림 효과 */
+            z-index: 10000; align-items: center; justify-content: center; padding: 15px;
         }
         .intro-popup-content { 
-            position: relative; width: 95%; max-width: 450px; 
-            animation: fadeInScale 0.6s ease-out forwards; transform-origin: center center; opacity: 0;
+            position: relative; width: 95%; max-width: 420px; 
+            animation: fadeInScale 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; 
+            transform-origin: center center; opacity: 0;
         }
         @keyframes fadeInScale {
-            0% { transform: translateY(-20px) scale(0.9); opacity: 0; }
+            0% { transform: translateY(-30px) scale(0.92); opacity: 0; }
             100% { transform: translateY(0) scale(1); opacity: 1; }
         }
-        .intro-popup-content img { border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+        .intro-popup-content img { 
+            border-radius: 20px; 
+            border: 2px solid #c3a277; /* 엘리프의 품격 있는 골드 테두리 */
+            box-shadow: 0 25px 50px -12px rgba(0, 48, 40, 0.4); 
+        }
         .pop-close-x { 
-            position: absolute; top: 15px; right: 15px; width: 30px; height: 30px; 
-            cursor: pointer; z-index: 2; background: rgba(0,0,0,0.5); border-radius: 50%; color: #fff; line-height: 30px; font-weight: bold; font-style: normal;
+            position: absolute; top: 15px; right: 15px; width: 34px; height: 34px; 
+            cursor: pointer; z-index: 2; 
+            background: rgba(0, 48, 40, 0.85); 
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%; color: #fff; 
+            line-height: 31px; font-weight: 500; font-style: normal;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .pop-close-x:hover {
+            background: #c3a277;
+            color: #003027;
+            border-color: #c3a277;
         }
 
-        /* [2. 명함 & 예약 폼 섹션] */
-        .business-card, .reservation-card { width: 100%; background: #fff; padding: 30px 20px; border-bottom: 1px solid #eee; }
+        /* [2. 명함 & 예약 폼 섹션 - 초정밀 프리미엄 레이아웃] */
+        .business-card, .reservation-card { 
+            width: 100%; 
+            background: #fff; 
+            padding: 40px 20px; 
+            border-bottom: 1px solid #f2eedf; 
+        }
         .card-container, .res-container { width: 100%; max-width: 330px; margin: 0 auto; }
-        .card-container img { border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
-        .card-btn-call { display: block; margin-top: 15px; padding: 12px 0; background: #003a78; color: #fff; text-decoration: none; border-radius: 8px; font-size: 16px; font-weight: bold; }
+        .card-container img { 
+            border-radius: 16px; 
+            border: 1px solid rgba(195, 162, 119, 0.2); /* 은은한 골드 마감 테두리 */
+            box-shadow: 0 15px 35px -5px rgba(0, 48, 40, 0.08); 
+            transition: transform 0.3s;
+        }
+        .card-container img:hover {
+            transform: translateY(-4px);
+        }
+        .card-btn-call { 
+            display: block; 
+            margin-top: 20px; 
+            padding: 15px 0; 
+            background: linear-gradient(135deg, #004d40, #003027); /* 브랜드 딥 그린 그라데이션 */
+            color: #fff; 
+            text-decoration: none; 
+            border-radius: 12px; 
+            font-size: 15px; 
+            font-weight: 700; 
+            letter-spacing: -0.5px;
+            box-shadow: 0 8px 16px -4px rgba(0, 48, 40, 0.3);
+            border: 1px solid rgba(195, 162, 119, 0.3); /* 프리미엄 골드 라인 */
+            transition: all 0.3s;
+        }
+        .card-btn-call:hover {
+            background: linear-gradient(135deg, #c3a277, #a9895f); /* 호버 시 품격 있는 브론즈 골드 */
+            border-color: #a9895f;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -4px rgba(195, 162, 119, 0.4);
+        }
 
-        /* [우측 상담 예약 박스 - 파란색 테마 적용] */
+        /* [우측 상담 예약 박스 - 엘리프 딥 에버그린 & 샴페인 골드 극대화] */
         .res-container { 
-            border: 2px solid #ffcc00; /* 테두리는 골드로 포인트 */
-            border-radius: 20px; 
-            padding: 25px 20px; 
-            background: linear-gradient(135deg, #002a58, #003a78); /* 배경을 진한 파란색 그라데이션으로 */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
-            color: #fff; /* 내부 글씨는 모두 하얗게 */
+            border: 1px solid #c3a277; /* 은은하고 얇은 럭셔리 골드 테두리 */
+            border-radius: 24px; 
+            padding: 30px 24px; 
+            background: linear-gradient(135deg, #003027, #004d40); /* 프리미엄 엘리프 에버그린 그라데이션 */
+            box-shadow: 0 20px 40px -10px rgba(0, 48, 40, 0.25); 
+            color: #fff; 
         }
         
         .res-container h3 { 
-            font-size: 20px; 
-            color: #ffcc00; /* 제목은 골드색으로 강조 */
-            margin-bottom: 18px; 
+            font-size: 19px; 
+            color: #c3a277; /* 엘리프의 골드로 세련되게 강조 */
+            margin-bottom: 20px; 
             font-weight: 700; 
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: -0.5px;
+            text-shadow: none;
         }
         
         .res-input { 
             width: 100%; 
-            padding: 14px; 
+            padding: 14px 16px; 
             margin-bottom: 12px; 
-            border: 1px solid rgba(255,255,255,0.3); /* 입력창 테두리는 살짝 투명하게 */
+            border: 1px solid rgba(195, 162, 119, 0.25); /* 인풋 박스도 골드 매칭 */
             border-radius: 10px; 
-            font-size: 15px; 
-            background: rgba(255,255,255,0.9); /* 입력창 배경은 살짝 밝게 해서 가독성 확보 */
-            color: #333;
+            font-size: 14px; 
+            background: rgba(255, 255, 255, 0.98); 
+            color: #003027;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .res-input:focus {
+            outline: none;
+            border-color: #c3a277;
+            box-shadow: 0 0 0 3px rgba(195, 162, 119, 0.2);
         }
         
         .res-btn { 
             width: 100%; 
             padding: 15px; 
-            background: #ffcc00; /* 버튼은 눈에 확 띄는 노란색/골드계열 */
-            color: #002a58; /* 버튼 글자는 진한 파란색 */
+            background: linear-gradient(135deg, #c3a277, #a9895f); /* 찬란하고 럭셔리한 샴페인 골드버튼 */
+            color: #ffffff; 
             border: none; 
             border-radius: 10px; 
-            font-size: 16px; 
-            font-weight: bold; 
+            font-size: 15px; 
+            font-weight: 700; 
             cursor: pointer; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: transform 0.2s;
+            box-shadow: 0 6px 20px rgba(195, 162, 119, 0.3);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         
         .res-btn:hover {
-            transform: scale(1.02); /* 마우스 올리면 살짝 커지는 효과 */
+            transform: translateY(-2px); 
+            box-shadow: 0 8px 25px rgba(195, 162, 119, 0.45);
+            filter: brightness(1.05);
         }
 
         /* [3. 타이틀 & 배너] */
-        .main-title { background-color: #fff; padding: 50px 20px; position: relative; display: flex; align-items: center; justify-content: center; min-height: 180px; }
+        .main-title { 
+            background-color: #fff; 
+            padding: 60px 20px; 
+            position: relative; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            min-height: 180px; 
+            border-bottom: 1px solid #f2eedf;
+        }
         .main-title .inner-logo { display: none; }
-        .main-title h2 { font-size: 28px; color: #003a78; font-weight: 700; letter-spacing: -1px; line-height: 1.2; word-break: keep-all; }
-        .main-title p { font-size: 16px; color: #666; margin-top: 10px; word-break: keep-all; }
+        .main-title h2 { 
+            font-size: 28px; 
+            color: #004d40; /* 엘리프 메인 딥 그린 */
+            font-weight: 700; 
+            letter-spacing: -1.5px; 
+            line-height: 1.25; 
+            word-break: keep-all; 
+        }
+        .main-title p { 
+            font-size: 15px; 
+            color: #556661; /* 차분한 그리니시 그레이 */
+            margin-top: 12px; 
+            word-break: keep-all; 
+            font-weight: 400;
+        }
         
         .point-banner { 
-            background: linear-gradient(90deg, #002a58, #003a78); color: #fff; padding: 18px 10px; font-size: 19px; font-weight: bold; 
-            border-top: 2px solid #ffcc00; border-bottom: 2px solid #ffcc00; text-shadow: 0 0 10px rgba(255, 204, 0, 0.6); 
-            animation: bannerPulse 2s infinite; 
+            background: linear-gradient(135deg, #003027, #004d40); 
+            color: #fff; 
+            padding: 20px 10px; 
+            font-size: 17px; 
+            font-weight: 700; 
+            letter-spacing: -0.5px;
+            border-top: 1px solid #c3a277; 
+            border-bottom: 1px solid #c3a277; 
+            text-shadow: none;
+            box-shadow: inset 0 0 20px rgba(195, 162, 119, 0.1);
+            animation: bannerPulse 3s infinite ease-in-out; 
         }
-        .point-banner a { color: #ffcc00; text-decoration: none; }
-        @keyframes bannerPulse { 0% { background-color: #002a58; } 50% { background-color: #004da1; } 100% { background-color: #002a58; } }
+        .point-banner a { 
+            color: #c3a277; 
+            text-decoration: none; 
+            border-bottom: 1px solid rgba(195, 162, 119, 0.4);
+            padding-bottom: 2px;
+            transition: all 0.2s;
+        }
+        .point-banner a:hover {
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+        @keyframes bannerPulse { 
+            0% { background-color: #003027; } 
+            50% { background-color: #004d40; } 
+            100% { background-color: #003027; } 
+        }
 
-        /* [4. 탭 메뉴] */
-        .tab-menu { display: flex; flex-wrap: wrap; justify-content: center; background: #fff; position: sticky; top: 0; z-index: 2000; border-bottom: 2px solid #003a78; }
-        .tab-btn { flex: 1; min-width: 20%; padding: 15px 5px; border: none; background: #fff; font-size: 16px; font-weight: bold; color: #666; cursor: pointer; border-right: 1px solid #eee; }
-        .tab-btn.active { background: #003a78; color: #fff; }
+        /* [4. 탭 메뉴 - 세련된 미니멀 보더 스타일] */
+        .tab-menu { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            background: #fff; 
+            position: sticky; 
+            top: 0; 
+            z-index: 2000; 
+            border-bottom: 2px solid #004d40; 
+            box-shadow: 0 4px 20px rgba(0, 48, 40, 0.04);
+        }
+        .tab-btn { 
+            flex: 1; 
+            min-width: 20%; 
+            padding: 18px 5px; 
+            border: none; 
+            background: #fff; 
+            font-size: 15px; 
+            font-weight: 500; 
+            color: #556661; 
+            cursor: pointer; 
+            border-right: 1px solid #f2eedf; 
+            transition: all 0.3s;
+        }
+        .tab-btn:hover {
+            color: #004d40;
+            background: #fcfbfa;
+        }
+        .tab-btn.active { 
+            background: #004d40; 
+            color: #fff; 
+            font-weight: 700;
+        }
 
         .tab-content { display: none; width: 100%; max-width: 1100px; margin: 0 auto; background: #fff; }
         .tab-content.active { display: block !important; }
 
         /* [5. 탭 콘텐츠 & 세대안내 복합 필터] */
-        .tab-content { display: none; width: 100%; max-width: 1100px; margin: 0 auto; background: #fff; }
-        .tab-content.active { display: block !important; }
-        .view-mode-selector { display: flex; background: #eee; margin: 0; padding: 10px; position: sticky; top: 52px; z-index: 1500; border-bottom: 1px solid #ddd; }
-        .mode-btn { flex: 1; padding: 12px; border: none; background: #ddd; font-weight: bold; color: #888; cursor: pointer; border-radius: 6px; margin: 0 5px; }
-        .mode-btn.active { background: #003a78; color: #fff; }
+        .view-mode-selector { 
+            display: flex; 
+            background: #f5f4ef; 
+            margin: 0; 
+            padding: 12px; 
+            position: sticky; 
+            top: 55px; 
+            z-index: 1500; 
+            border-bottom: 1px solid #e2ded0; 
+        }
+        .mode-btn { 
+            flex: 1; 
+            padding: 12px; 
+            border: none; 
+            background: #e2ded0; 
+            font-weight: 700; 
+            color: #556661; 
+            cursor: pointer; 
+            border-radius: 8px; 
+            margin: 0 5px; 
+            transition: all 0.2s;
+        }
+        .mode-btn.active { 
+            background: #004d40; 
+            color: #fff; 
+        }
         .mode-content, .sub-tab-content { display: none; }
         .mode-content.active, .sub-tab-content.active { display: block !important; }
-        .size-filter, .type-group.active { position: sticky; top: 120px; z-index: 1000; background: #fff; border-bottom: 1px solid #eee; transition: all 0.3s ease; }
-        .size-filter.scrolled, .type-group.active.scrolled { background: transparent !important; border-bottom: none !important; }
-        .size-filter { display: flex; justify-content: center; gap: 8px; padding: 15px 10px; overflow-x: auto; scrollbar-width: none; }
-        .filter-btn, .sub-tab-btn { flex: 0 0 auto; min-width: 95px; padding: 10px 15px; border: 1px solid #003a78; background: #fff; color: #003a78; border-radius: 4px; font-weight: bold; cursor: pointer; }
-        .filter-btn.active, .sub-tab-btn.active { background: #003a78 !important; color: #fff !important; }
-        .type-group { display: none; padding: 15px 10px; text-align: center; }
+        
+        .size-filter, .type-group.active { 
+            position: sticky; 
+            top: 130px; 
+            z-index: 1000; 
+            background: #fff; 
+            border-bottom: 1px solid #f2eedf; 
+            transition: all 0.3s ease; 
+        }
+        .size-filter.scrolled, .type-group.active.scrolled { 
+            background: transparent !important; 
+            border-bottom: none !important; 
+        }
+        .size-filter { 
+            display: flex; 
+            justify-content: center; 
+            gap: 8px; 
+            padding: 16px 12px; 
+            overflow-x: auto; 
+            scrollbar-width: none; 
+        }
+        .size-filter::-webkit-scrollbar { display: none; }
+
+        .filter-btn, .sub-tab-btn { 
+            flex: 0 0 auto; 
+            min-width: 95px; 
+            padding: 10px 18px; 
+            border: 1px solid #004d40; 
+            background: #fff; 
+            color: #004d40; 
+            border-radius: 30px; /* 미니멀 캡슐 라운드 */
+            font-weight: 700; 
+            font-size: 13px;
+            cursor: pointer; 
+            transition: all 0.25s;
+        }
+        .filter-btn:hover, .sub-tab-btn:hover {
+            background: #faf9f5;
+        }
+        .filter-btn.active, .sub-tab-btn.active { 
+            background: #004d40 !important; 
+            color: #fff !important; 
+            border-color: #004d40;
+            box-shadow: 0 4px 10px rgba(0, 48, 40, 0.15);
+        }
+        .type-group { display: none; padding: 18px 10px; text-align: center; }
         #photo-view .type-group.active { display: block !important; }
         .sub-tab-menu { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
 
-        /* [6. PC 전용 설정] */
+        /* [6. PC 전용 고급화 고정식 명함/예약 레이아웃] */
         @media (min-width: 1024px) {
             .business-card, .reservation-card { 
-                position: fixed; top: 65%; width: 320px; z-index: 1100; border: 2px solid #003a78; border-radius: 20px; 
-                background: #fff; box-shadow: 10px 10px 30px rgba(0,0,0,0.1); transition: all 0.5s ease-out; 
+                position: fixed; 
+                top: 55%; 
+                width: 320px; 
+                z-index: 1100; 
+                border: 1px solid rgba(195, 162, 119, 0.25); 
+                border-radius: 24px; 
+                background: rgba(255, 255, 255, 0.95); 
+                backdrop-filter: blur(10px); 
+                box-shadow: 0 30px 60px -15px rgba(0, 48, 40, 0.12); 
+                transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); 
             }
             .business-card { left: 40px; transform: translateY(-50%); }
-            .reservation-card { right: 40px; transform: translateY(-50%); border-bottom: 2px solid #003a78; }
+            .reservation-card { right: 40px; transform: translateY(-50%); }
             .business-card.scrolled, .reservation-card.scrolled { top: 50% !important; }
             
-            .main-title .inner-logo { display: block; position: absolute; left: 115px; top: 50%; transform: translateY(-50%); height: 160px; z-index: 1; }
-            .main-title .inner-logo img { height: 100%; width: auto; }
-            .main-title h2 { font-size: 42px; }
-            .main-title p { font-size: 20px; }
+            .main-title .inner-logo { 
+                display: block; 
+                position: absolute; 
+                left: 115px; 
+                top: 50%; 
+                transform: translateY(-50%); 
+                height: 120px; 
+                z-index: 1; 
+            }
+            .main-title .inner-logo img { height: 100%; width: auto; object-fit: contain; }
+            .main-title h2 { font-size: 40px; letter-spacing: -2px; }
+            .main-title p { font-size: 18px; margin-top: 15px; }
             
-            .mobile-res-only { display: none; } /* PC에선 탭 아래 예약창 숨김 */
+            .mobile-res-only { display: none; } 
         }
 
-        /* [7. 모바일 전용 설정] */
+        /* [7. 모바일 전용 조화로운 세팅] */
         @media (max-width: 1023px) {
-            .reservation-card { position: static; border: none; border-top: 8px solid #f1f1f1; padding: 50px 20px; background: #f8f9fa; }
-            #resCard { display: none; } /* PC 전용 고정창은 모바일서 숨김 */
+            .reservation-card { 
+                position: static; 
+                border: none; 
+                border-top: 8px solid #f2eedf; 
+                padding: 50px 20px; 
+                background: #fbfaf7; 
+            }
+            #resCard { display: none; } 
         }
     </style>
 </head>
@@ -191,7 +415,7 @@
     </div>
     
     <div class="main-title">
-        <div class="inner-logo"><img src="img/logo.jpg" alt="엘리프 한신더휴 로고"></div>
+        <div class="inner-logo"><img src="img/logo.png" alt="더샵 로고"></div>
         <div class="title-text">
             <h2>엘리프 한신더휴 수원</h2>
             <p>계룡건설과 한신공영이 함께 만드는 1,149세대 브랜드타운 명품 대단지!</p>
