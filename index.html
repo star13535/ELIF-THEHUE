@@ -303,15 +303,54 @@
             background: transparent !important; 
             border-bottom: none !important; 
         }
+        
+        /* 모바일 스와이프 안내 문구용 클래스 추가 */
+        .swipe-hint-text {
+            display: none;
+            font-size: 11px;
+            color: #c3a277;
+            margin-top: 15px;
+            margin-bottom: -5px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            text-align: center;
+        }
+
         .size-filter { 
             display: flex; 
-            justify-content: center; 
+            justify-content: flex-start; /* 모바일에서 횡스크롤 유도를 위해 왼쪽 시작 정렬 */
             gap: 8px; 
-            padding: 16px 12px; 
+            padding: 16px 12px 24px 12px; /* 세련된 하단 스크롤바 정렬을 위한 아래쪽 여백 확보 */
             overflow-x: auto; 
-            scrollbar-width: none; 
+            scrollbar-width: thin; /* Firefox */
+            scrollbar-color: #c3a277 #f2eedf; /* Firefox */
         }
-        .size-filter::-webkit-scrollbar { display: none; }
+
+        /* 럭셔리 모바일 전용 맞춤형 웹킷 스크롤바 디자인 */
+        @media (max-width: 1023px) {
+            .swipe-hint-text {
+                display: block; /* 모바일 전용 가이드 텍스트 노출 */
+                animation: pulseSwipeHint 2s infinite ease-in-out;
+            }
+            
+            .size-filter::-webkit-scrollbar { 
+                display: block !important;
+                height: 3px; /* 얇고 미니멀하며 눈에 거슬리지 않는 트랙 두께 */
+            }
+            .size-filter::-webkit-scrollbar-track {
+                background: #f2eedf; /* 은은한 샌드베이지 배경 */
+                border-radius: 10px;
+            }
+            .size-filter::-webkit-scrollbar-thumb {
+                background: #c3a277; /* 프리미엄 골드 바 */
+                border-radius: 10px;
+            }
+        }
+        
+        @keyframes pulseSwipeHint {
+            0%, 100% { opacity: 0.6; transform: scale(0.98); }
+            50% { opacity: 1; transform: scale(1); }
+        }
 
         .filter-btn, .sub-tab-btn { 
             flex: 0 0 auto; 
@@ -341,6 +380,14 @@
 
         /* [6. PC 전용 고급화 고정식 명함/예약 레이아웃] */
         @media (min-width: 1024px) {
+            .size-filter {
+                justify-content: center; /* PC 환경에서는 깔끔한 가운데 정렬 고수 */
+                padding: 16px 12px;
+            }
+            .size-filter::-webkit-scrollbar {
+                display: none !important; /* PC에서는 스크롤바가 숨겨짐 */
+            }
+
             .business-card, .reservation-card { 
                 position: fixed; 
                 top: 55%; 
@@ -475,6 +522,8 @@
             <div id="danji3" class="sub-tab-content"><img src="img/36.jpg"><img src="img/37.jpg"><img src="img/38.jpg"><img src="img/39.jpg"><img src="img/40.jpg"><img src="img/41.jpg"></div>
         </div>
         <div id="plan-view" class="mode-content">
+            <!-- 모바일 가이드 문구 추가 영역 -->
+            <div class="swipe-hint-text">↔ 좌우로 밀어서 모든 타입을 확인해보세요</div>
             <div class="size-filter">
                 <button class="filter-btn active" onclick="filterSize(event, 'size74A')">74A</button>
                 <button class="filter-btn" onclick="filterSize(event, 'size84A')">84A~P</button>
